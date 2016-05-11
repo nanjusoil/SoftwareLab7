@@ -1,5 +1,7 @@
 package main.java;
 
+import java.util.Random;
+
 import processing.core.PApplet;
 
 /**
@@ -21,13 +23,15 @@ public class Character {
 
 	public float bdify;
 	
+	Random random = new Random();
+	
 	private final static int width = 1200, height = 650;
 	public Character(MainApplet parent){
 
 		this.parent = parent;
-		boxX = width/2;
+		boxX = random.nextInt(500);
 
-		boxY = height/2;
+		boxY = random.nextInt(500);
 		
 		boxLength = 20;
 		

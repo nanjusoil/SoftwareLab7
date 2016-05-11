@@ -12,7 +12,7 @@ public class MainApplet extends PApplet{
 	private String path = "main/resources/";
 	private String file = "starwars-episode-1-interactions.json";
 	JSONObject json;
-	Character character = new Character(this);
+	Character[] character = new Character[10];
 	
 	private final static int width = 1200, height = 650;
 	
@@ -26,76 +26,86 @@ public class MainApplet extends PApplet{
 	public void draw() {
 		  background(0);
 
-		  if (mouseX > character.boxX-character.boxLength && mouseX < character.boxX+character.boxLength &&  mouseY > character.boxY-character.boxLength && mouseY < character.boxY+character.boxLength) {
-
-			  character.cursorOnBox = true;  
-
-		    if(!character.boxLocked) { 
-
-		      stroke(255); 
-
-		      fill(153);
-
-		    } 
-
-		  } else {
-
-		    stroke(153);
-
-		    fill(153);
-
-		    character.cursorOnBox = false;
-
+		  for(int i = 0 ; i < 10 ;  i ++)
+		  {
+			  if (mouseX > character[i].boxX-character[i].boxLength && mouseX < character[i].boxX+character[i].boxLength &&  mouseY > character[i].boxY-character[i].boxLength && mouseY < character[i].boxY+character[i].boxLength) {
+	
+				  character[i].cursorOnBox = true;  
+	
+			    if(!character[i].boxLocked) { 
+	
+			      stroke(255); 
+	
+			      fill(153);
+	
+			    } 
+	
+			  } else {
+	
+			    stroke(153);
+	
+			    fill(153);
+	
+			    character[i].cursorOnBox = false;
+	
+			  }
+	
+			  rect(character[i].boxX, character[i].boxY, character[i].boxLength, character[i].boxLength);
 		  }
-
-		  rect(character.boxX, character.boxY, character.boxLength, character.boxLength);
 	}
 
 	private void loadData(){
 		json = loadJSONObject(path + "starwars-episode-1-interactions.json");
+		for(int i = 0 ; i < 10 ;i++)
+			character[i] = new Character(this);
 		System.out.println(json);
 	}
 
 	public void mousePressed() {
-	
-	  if(character.cursorOnBox) { 
-	
-		  character.boxLocked = true; 
-	
-	    fill(255, 255, 255);
-	
-	  } else {
-	
-		  character.boxLocked = false;
-	
-	  }
-	
-	  character.bdifx = mouseX-character.boxX; 
-	
-	  character.bdify = mouseY-character.boxY; 
-	
+	for(int i = 0 ; i < 10 ;  i ++)
+	{	
+		  if(character[i].cursorOnBox) { 
+		
+			  character[i].boxLocked = true; 
+		
+		    fill(255, 255, 255);
+		
+		  } else {
+		
+			  character[i].boxLocked = false;
+		
+		  }
+		
+		  character[i].bdifx = mouseX-character[i].boxX; 
+		
+		  character[i].bdify = mouseY-character[i].boxY; 
+	}
 	
 	
 	}
 	
 	
 	public void mouseDragged() {
+	for(int i = 0 ; i < 10 ;  i ++)
+	{		
+	  if(character[i].boxLocked) {
 	
-	  if(character.boxLocked) {
+		  character[i].boxX = mouseX-character[i].bdifx; 
 	
-		  character.boxX = mouseX-character.bdifx; 
-	
-		  character.boxY = mouseY-character.bdify; 
+		  character[i].boxY = mouseY-character[i].bdify; 
 	
 	  }
+	}
 	
 	}
 	
 	
 	
 	public void mouseReleased() {
-	
-		character.boxLocked = false;
+	for(int i = 0 ; i < 10 ;  i ++)
+		{		
+			character[i].boxLocked = false;
+		}
 	  
 	}
 
