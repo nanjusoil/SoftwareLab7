@@ -135,6 +135,41 @@ public class MainApplet extends PApplet{
 			character[i].boxX = character[i].boxX + 500;
 		}
 	}
-
+	public void keyPressed(){
+		  if (key == '1') {
+			  fileindex = 1 ;
+			  loadData();
+		  }
+		  if (key == '2') {
+			  fileindex = 2;
+			  loadData();
+		  }
+		  if (key == '3') {
+			  fileindex = 3;
+			  loadData();
+		  }
+		  if (key == '4') {
+			  fileindex = 4;
+			  loadData();
+		  }
+		  if (key == '5') {
+			  fileindex = 5;
+			  loadData();
+		  }
+		  if (key == '6') {
+			  fileindex = 6;
+			  loadData();
+		  }
+		  if (key == '7') {
+			  fileindex = 7;
+			  loadData();
+		  }
+		  if (key == 'r') {
+			  loadData();
+		  }
+		  if (key == 's') {
+		      setAllNetwork();
+		  }
+	}
 
 }
