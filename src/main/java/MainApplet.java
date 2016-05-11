@@ -30,7 +30,7 @@ public class MainApplet extends PApplet{
 	}
 
 	public void draw() {
-		  background(0);
+		  background(255);
 
 		  if(drawSet == true)
 		  {
