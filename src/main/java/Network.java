@@ -35,7 +35,7 @@ public class Network {
 			{
 				parent.line(character[connection.getInt("source")].boxX , character[connection.getInt("source")].boxY , character[connection.getInt("target")].boxX , character[connection.getInt("target")].boxY);
 				parent.fill(153);
-				parent.stroke(connection.getInt("value")/3);
+				parent.strokeWeight(connection.getInt("value")/3);
 			}
 		}
 	}

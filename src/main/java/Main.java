@@ -1,4 +1,5 @@
 package main.java;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 
 /**
@@ -20,7 +21,6 @@ public class Main extends JFrame{
 		applet.init();
 		applet.start();
 		applet.setFocusable(true);
-		
 		JFrame window = new JFrame("Star Wars Network Analysis");
 		window.setContentPane(applet);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
