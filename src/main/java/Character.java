@@ -1,5 +1,6 @@
 package main.java;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import processing.core.PApplet;
@@ -25,6 +26,12 @@ public class Character {
 	
 	Random random = new Random();
 	
+	public boolean isDrawNetwork;
+	
+	String name;
+	
+	private ArrayList<Character> targets;
+	
 	private final static int width = 1200, height = 650;
 	public Character(MainApplet parent){
 
@@ -42,10 +49,24 @@ public class Character {
 		bdifx = 0;
 		
 		bdify = 0;
+		
+		targets = new ArrayList<Character>() ;
 	}
 
 	public void display(){
 
+	}
+	
+	public void drawNetwork(){
+		if(boxX>500)
+		{
+			isDrawNetwork = true;
+			//System.out.println("true");
+		}
+	}
+	
+	public void addTarget(Character target){
+		this.targets.add(target);
 	}
 	
 }
